@@ -26,3 +26,5 @@ go.work.sum
 
 # direnv files
 .direnv
+ts
+tm
