@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/keyzox71/timmy/cmd/ts"
+	"github.com/keyzox71/timmy/cmd/tm"
 )
 
 func	main() {
@@ -18,5 +19,7 @@ func	main() {
 		helpMsg()
 	} else if args[1] == "search" {
 		ts.Ts()
+	} else if args[1] == "create" {
+		tm.Tm()
 	}
 }

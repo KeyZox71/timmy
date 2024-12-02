@@ -6,11 +6,20 @@
 #    By: adjoly <adjoly@student.42angouleme.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/01 20:34:14 by adjoly            #+#    #+#              #
-#    Updated: 2024/12/02 14:46:34 by adjoly           ###   ########.fr        #
+#    Updated: 2024/12/02 15:57:16 by adjoly           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MODNAME = github.com/keyzox71/timmy
+MOD_NAME = github.com/keyzox71/timmy
+
+EXEC_NAME = timmy
+
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[1;33m
+PURPLE = \e[0;35m
+NC = \033[0m
+DELETE = \x1B[2K\r
 
 all: build-timmy
 
@@ -18,17 +27,12 @@ tidy:
 	@go mod tidy
 
 build-timmy:
-	@go build $(MODNAME)/cmd/timmy
-
-build-tm:
-	@go build $(MODNAME)/cmd/tm
-
-build-ts:
-	@go build $(MODNAME)/cmd/ts
+	@go build -o $(EXEC_NAME) $(MOD_NAME)/cmd/timmy
+	@printf "$(YELLOW)「✨」($(EXEC_NAME)) Program compiled\n"
 
 clean:
-	@rm -f $(CLI_NAME)
-	@printf "$(RED)「🗑️」($(CLI_NAME)) Program deleted\n"
+	@rm -f $(EXEC_NAME)
+	@printf "$(RED)「🗑️」($(EXEC_NAME)) Program deleted\n"
 
 fclean: clean
 
