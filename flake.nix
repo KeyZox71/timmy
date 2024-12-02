@@ -8,7 +8,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, ... }:
+    inputs@{ nixpkgs, self, ... }:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -20,6 +20,18 @@
         f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
     in
     {
+      packages = forEachSupportedSystem (
+        { pkgs }:
+        rec {
+          default = timmy;
+          timmy = pkgs.buildGoModule rec {
+			src = self;
+			pname = "timmy";
+			version = "0.1";
+			vendorHash = "sha256-l/+TXNT7Z/CbnVCzB0B8VA7Fkj+MOOL1s3QHnZkAsUg=";
+          };
+        }
+      );
       devShells = forEachSupportedSystem (
         { pkgs }:
         {
