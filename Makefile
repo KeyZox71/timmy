@@ -6,16 +6,19 @@
 #    By: adjoly <adjoly@student.42angouleme.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/01 20:34:14 by adjoly            #+#    #+#              #
-#    Updated: 2024/12/02 13:34:38 by adjoly           ###   ########.fr        #
+#    Updated: 2024/12/02 14:46:34 by adjoly           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MODNAME = github.com/keyzox71/timmy
 
-all: build-tm build-ts
+all: build-timmy
 
 tidy:
 	@go mod tidy
+
+build-timmy:
+	@go build $(MODNAME)/cmd/timmy
 
 build-tm:
 	@go build $(MODNAME)/cmd/tm

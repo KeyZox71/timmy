@@ -1,4 +1,4 @@
-package main
+package ts
 
 import (
 	"log"
@@ -9,7 +9,7 @@ import (
 	fuzzyfinder "github.com/ktr0731/go-fuzzyfinder"
 )
 
-func	main() {
+func	Ts() {
 	cmd, err := exec.Command("tmux", "list-sessions", "-F", "#{session_name}").Output()
 	if err != nil {
 		log.Fatal(err)
@@ -21,6 +21,10 @@ func	main() {
 			return str[i]
 		},
 	)
+	if (err != nil) {
+		log.Print(err)
+		return
+	}
 	attachCmd := exec.Command("tmux", "attach", "-t", string(str[res[0]]))
 	attachCmd.Stderr = os.Stderr
 	attachCmd.Stdout = os.Stdout
