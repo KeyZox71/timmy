@@ -24,9 +24,10 @@
         { pkgs }:
         rec {
           default = timmy;
-          timmy = pkgs.buildGoModule rec {
+          timmy = pkgs.buildGoModule {
 			src = self;
 			pname = "timmy";
+			subPackages = [ "cmd/timmy" ];
 			version = "0.1";
 			vendorHash = "sha256-l/+TXNT7Z/CbnVCzB0B8VA7Fkj+MOOL1s3QHnZkAsUg=";
           };
