@@ -1,0 +1,10 @@
+
+fzf-tmux-session() {
+	local session
+	session=$(tmux list-sessions -F "#{session_name}" | fzf)
+
+	if [ ! -z "$session" ]; then
+		tmux attach -t "$session"
+	fi
+}
+alias ts='fzf-tmux-session'
