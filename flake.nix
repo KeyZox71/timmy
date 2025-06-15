@@ -28,7 +28,7 @@
 			src = self;
 			pname = "timmy";
 			subPackages = [ "cmd/timmy" ];
-			version = "0.1";
+			version = "0.1.1";
 			vendorHash = "sha256-l/+TXNT7Z/CbnVCzB0B8VA7Fkj+MOOL1s3QHnZkAsUg=";
           };
         }
@@ -44,6 +44,7 @@
               go
               gopls
               inputs.pogit.packages.${pkgs.system}.default
+              self.packages.${pkgs.system}.default
             ];
           };
         }

@@ -12,4 +12,10 @@ func	helpMsg() {
 	fmt.Println("  create - used to create session")
 	fmt.Println("         - '-2' used to create a session named after the last two folder of the working directory")
 	fmt.Println("         - 'name' used to create a session named with the name specified")
+	fmt.Println("         - '-d' used to create a \"default workspace\" (with nvim as first tab and a shell as second)")
+	fmt.Println("  version - used to print version number")
+}
+
+func	versionMsg() {
+	fmt.Println("timmy version v0.1.1")
 }
