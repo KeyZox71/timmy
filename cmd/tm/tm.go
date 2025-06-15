@@ -16,6 +16,8 @@ func	Tm() {
 	if (args[0] == "-2") {
 		tmux.CreateSession(path.GetCurrentPathN(2))
 		return
+	} else if (args[0] == "-d") {
+		 tmux.CreateDefaultSession(path.GetCurrentPathN(1))
 	} else {
 		tmux.CreateSession(args[0])
 	}

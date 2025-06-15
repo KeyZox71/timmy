@@ -21,5 +21,7 @@ func	main() {
 		ts.Ts()
 	} else if args[1] == "create" {
 		tm.Tm()
+	} else if args[1] == "version" {
+		versionMsg()
 	}
 }
