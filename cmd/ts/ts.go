@@ -16,7 +16,7 @@ func	Ts() {
 	}
 	str := strings.Split(string(cmd), "\n")
 	res, err := fuzzyfinder.FindMulti(
-		str,
+		str[0:len(str)-1],
 		func(i int) string{
 			return str[i]
 		},
